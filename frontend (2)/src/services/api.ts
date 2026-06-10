@@ -71,5 +71,21 @@ export const api = {
 
     const result = await response.json();
     return toCamelCase(result);
+  },
+
+  async getHistory(): Promise<PredictionHistory[]> {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/history`);
+      
+      if (!response.ok) {
+        throw new Error('History request failed');
+      }
+
+      const data = await response.json();
+      return toCamelCase(data);
+    } catch (error) {
+      // If API doesn't exist, return empty array to fall back to demo data
+      throw error;
+    }
   }
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Layout } from '../components/layout/Layout';
 import { Card, CardHeader, CardContent } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 interface Settings {
@@ -45,7 +46,8 @@ export function SettingsPage() {
     setHasChanges(true);
   };
   return (
-    <div className="space-y-6">
+    <Layout>
+      <div className="space-y-6">
       <div>
         <h2 className="text-xl font-semibold text-white mb-1">Settings</h2>
         <p className="text-sm text-slate-500">
@@ -218,6 +220,7 @@ export function SettingsPage() {
           requires server restart.
         </p>
       </div>
-    </div>);
-
+      </div>
+    </Layout>
+  );
 }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {
   ArrowPathIcon,
-  ClipboardDocumentIcon } from
-'@heroicons/react/24/outline';
+  ClipboardDocumentIcon
+} from '@heroicons/react/24/outline';
+import { Layout } from '../components/layout/Layout';
 import { Card, CardHeader, CardContent } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
@@ -32,7 +33,8 @@ export function StatusPage() {
     alert('Endpoint copied to clipboard');
   };
   return (
-    <div className="space-y-6">
+    <Layout onRefresh={checkHealth}>
+      <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-semibold text-white mb-1">
@@ -231,6 +233,7 @@ export function StatusPage() {
           </div>
         </CardContent>
       </Card>
-    </div>);
-
+      </div>
+    </Layout>
+  );
 }
